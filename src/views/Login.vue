@@ -5,7 +5,7 @@
       <div id="loginPanel">
         <input type="text" name="" id="unameInput" placeholder="username">
         <input type="password" name="" id="pwInput" placeholder="password" style="margin-top: 20px">
-        <div id="loginBtn">Login</div>
+        <div id="loginBtn">login</div>
       </div>
     </div>
   </div>
@@ -38,16 +38,19 @@ export default {
 
 #title{
   color: black;
-  font-size: 37px;
+  font-size: 54px;
+  margin-bottom: 15%;
+  font-family: 'Sen', sans-serif;
 }
 
 #loginPanel{
   color: #F7F9FE;
   width: fit-content;
-  padding: 50px 40px;
+  padding: 40px;
   font-size: 20px;
-  border-radius: 4px;
-  background-color: #FF3366;
+  border-radius: 11px;
+  border: 3px solid black;
+  background-color: rgba(255, 51, 102, 0.418);
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
 }
 
@@ -55,10 +58,12 @@ input{
   display: block;
   margin: 0 auto;
   margin: 15px;
-  padding: 5px;
-  font-size: 17px;
+  padding: 10px;
+  font-size: 14px;
   border-radius: 4px;
+  border: 1.5px solid rgba(0, 0, 0, 0.651);
   transition-duration: 300ms;
+  background-color: rgba(255, 255, 255, 0.212);
 }
 input:focus{
   transform: scale(1.1);
@@ -70,7 +75,21 @@ input:focus{
   width: fit-content;
   padding: 9px;
   font-size: 19px;
+  font-family: 'Open Sans', sans-serif;
   border-radius: 7px;
   border: 1px solid black;
+  background-color: #FF3366;
+  cursor: pointer;
+  transition-duration: 400ms;
+}
+#loginBtn:hover{
+  background-color: black;
+  color: #F7F9FE;
+}
+
+::placeholder{
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.001px;
 }
 </style>
