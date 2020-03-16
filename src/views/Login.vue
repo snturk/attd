@@ -55,6 +55,14 @@ export default {
   border: 3px solid black;
   background-color: rgba(255, 51, 102, 0.418);
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
+
+  animation: panelBg 9s infinite;
+}
+
+@keyframes panelBg {
+  0% {background-color: rgba(255, 51, 102, 0.418);}
+  50% {background-color: rgba(59, 80, 199, 0.418);}
+  100% {background-color: rgba(255, 51, 102, 0.418);}
 }
 
 input{
@@ -81,7 +89,7 @@ input:focus{
   font-family: 'Open Sans', sans-serif;
   border-radius: 7px;
   border: 1px solid black;
-  background-color: #FF3366;
+  background-color: rgba(255, 51, 102, 0.459);
   cursor: pointer;
   transition-duration: 400ms;
 }
