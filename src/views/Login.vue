@@ -38,7 +38,7 @@ export default {
 
 #title{
   color: black;
-  font-size: 54px;
+  font-size: 290%;
   margin-bottom: 15%;
   font-family: 'Sen', sans-serif;
 }
@@ -47,7 +47,6 @@ export default {
   color: #F7F9FE;
   width: fit-content;
   padding: 40px;
-  font-size: 20px;
   border-radius: 11px;
   border: 3px solid black;
   background-color: rgba(255, 51, 102, 0.418);
@@ -59,7 +58,7 @@ input{
   margin: 0 auto;
   margin: 15px;
   padding: 10px;
-  font-size: 14px;
+  font-size: 70%;
   border-radius: 4px;
   border: 1.5px solid rgba(0, 0, 0, 0.651);
   transition-duration: 300ms;
@@ -74,7 +73,7 @@ input:focus{
   margin-top: 20%;
   width: fit-content;
   padding: 9px;
-  font-size: 19px;
+  font-size: 90%;
   font-family: 'Open Sans', sans-serif;
   border-radius: 7px;
   border: 1px solid black;
