@@ -6,6 +6,10 @@
         <input type="text" name="" id="unameInput" placeholder="username">
         <input type="password" name="" id="pwInput" placeholder="password" style="margin-top: 20px">
         <div id="loginBtn">login</div>
+        <div id="linkContainer">
+          <router-link class="panelLink" to="/create">create an acc</router-link>
+          <router-link class="panelLink" to="/about">what is attd?</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -84,6 +88,16 @@ input:focus{
 #loginBtn:hover{
   background-color: black;
   color: #F7F9FE;
+}
+
+#linkContainer{
+  margin-top: 9%;
+}
+.panelLink{
+  color: darkblue;
+  cursor: pointer;
+  font-size: 80%;
+  margin-top: 6px;
 }
 
 ::placeholder{

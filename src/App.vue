@@ -46,4 +46,10 @@ background: linear-gradient(45deg, rgba(103,118,199,1) 27%, rgba(255,171,171,1) 
   text-align: center;
   color: #2c3e50;
 }
+
+a{
+  text-decoration: none;
+  color: black;
+  display: block;
+}
 </style>
