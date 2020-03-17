@@ -52,4 +52,45 @@ a{
   color: black;
   display: block;
 }
+
+::placeholder{
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.001px;
+}
+
+input{
+  display: block;
+  margin: 0 auto;
+  margin: 15px;
+  padding: 10px;
+  font-size: 70%;
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.651);
+  transition-duration: 300ms;
+  background-color: rgba(255, 255, 255, 0.212);
+}
+input:focus{
+  transform: scale(1.1);
+}
+
+.btn{
+  margin: 0 auto;
+  margin-top: 20%;
+  width: fit-content;
+  padding: 9px;
+  font-size: 90%;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 7px;
+  border: 2px solid black;
+  cursor: pointer;
+  transition-duration: 400ms;
+}
+
+.btn:hover{
+  background-color: black;
+  color: #F7F9FE;
+}
+   
 </style>
