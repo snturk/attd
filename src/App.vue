@@ -16,7 +16,7 @@ export default {
     }
   },
   created(){
-    router.push("/login");
+    router.push('/login', () => {})
   }
 }
 </script>
