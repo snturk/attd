@@ -1,5 +1,6 @@
 set -e
 
+firebase deploy
 npm run build
 
 cd dist
