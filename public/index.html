@@ -12,6 +12,26 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+
+    <script>
+      
+      var firebaseConfig = {
+        apiKey: "AIzaSyBqaiufyIramJOsuZdETrd_6mrMDvvYaj4",
+        authDomain: "attd-4a138.firebaseapp.com",
+        databaseURL: "https://attd-4a138.firebaseio.com",
+        projectId: "attd-4a138",
+        storageBucket: "attd-4a138.appspot.com",
+        messagingSenderId: "929542713021",
+        appId: "1:929542713021:web:0fe215c089424023c191d4",
+        measurementId: "G-KT1Y1CYSPT"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
   </body>
 </html>
