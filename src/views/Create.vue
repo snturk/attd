@@ -1,23 +1,47 @@
 <template>
   <div class="create">
     <div id="createPanel">
-      <input type="text"  id="usernameInput" placeholder="username">
-      <input type="email" id="emailInput" placeholder="email">
-      <input type="password" id="pwInput" placeholder="password">
-      <input type="password" id="pwInput" placeholder="password confirm">
-      <div id="createBtn" class="btn">create</div>
+      <input type="text"  id="usernameInput" placeholder="username" v-model="username">
+      <input type="email" id="emailInput" placeholder="email" v-model="email">
+      <input type="password" id="pwInput" placeholder="password" v-model="password">
+      <input type="password" id="pwCheckInput" placeholder="password confirm" v-model="passwordCheck">
+      <div id="createBtn" class="btn" v-on:click="signUp()">create</div>
     </div>
   </div>
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
   data(){
     return{
-
+      username: undefined,
+      password: undefined,
+      passwordCheck: undefined,
+      email: undefined
+    }
+  },
+  methods:{
+    signUp(){
+      if(this.password == this.passwordCheck && this.username.length > 2){
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+              (user) => {
+                user.displayName = this.username;
+            },
+            (err) => {
+              alert('Error ' + err.message);
+            }
+            
+            );
+      }else if(this.password != this.passwordCheck){
+        alert("passwords must be same");
+      }else if(this.username.length <= 2){
+        alert("username must have 3 or more characters");
+      }
+        }
     }
   }
-}
+
 </script>
 
 <style scoped>
