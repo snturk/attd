@@ -3,9 +3,9 @@
     <div id="panelContainer">
       <div id="title">attd</div>
       <div id="loginPanel">
-        <input type="text" name="" id="usernameInput" placeholder="username">
-        <input type="password" name="" id="pwInput" placeholder="password" style="margin-top: 20px">
-        <div id="loginBtn" class="btn">login</div>
+        <input type="text" name="" id="emailInput" placeholder="email" v-model="email">
+        <input type="password" name="" id="pwInput" placeholder="password" v-model="password" style="margin-top: 20px">
+        <div id="loginBtn" class="btn" v-on:click="signIn()">login</div>
         <div id="linkContainer">
           <router-link class="panelLink" to="/create">create an acc</router-link>
           <router-link class="panelLink" to="/about">what is attd?</router-link>
@@ -16,12 +16,27 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+import router from '../router/index.js'
 export default {
   data(){
     return{
-
+      email: undefined,
+      password: undefined
     }
-  }
+  },
+  methods: {
+    signIn(){
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+        (user) => {
+          router.push('/home', () => {});
+        },
+        (err) => {
+        alert('Error ' + err.message);
+        }
+      );
+    }
+  },
 }
 </script>
 
@@ -54,8 +69,7 @@ export default {
   border-radius: 11px;
   border: 3px solid black;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
-
-  animation: panelBg 9s infinite;
+  animation: panelBg 9.5s infinite;
 }
 
 @keyframes panelBg {
@@ -72,8 +86,7 @@ export default {
   margin-top: 9%;
 }
 .panelLink{
-  color: darkblue;
-  cursor: pointer;
+  text-decoration: underline;
   font-size: 80%;
   margin-top: 6px;
 }
