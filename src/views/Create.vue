@@ -12,6 +12,7 @@
 
 <script>
 import firebase from 'firebase'
+import router from '../router/index.js'
 export default {
   data(){
     return{
@@ -27,6 +28,7 @@ export default {
         firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
               (user) => {
                 user.displayName = this.username;
+                router.push('/login', () => {});
             },
             (err) => {
               alert('Error ' + err.message);
