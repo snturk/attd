@@ -49,8 +49,9 @@ background: linear-gradient(45deg, rgba(103,118,199,1) 27%, rgba(255,171,171,1) 
 
 a{
   text-decoration: none;
-  color: black;
+  color: darkblue;
   display: block;
+  cursor: pointer;
 }
 
 ::placeholder{
@@ -72,6 +73,7 @@ input{
 }
 input:focus{
   transform: scale(1.1);
+  box-shadow: 0 19px 28px rgba(0,0,0,0.30), 0 15px 13px rgba(0, 0, 0, 0.32);
 }
 
 .btn{
