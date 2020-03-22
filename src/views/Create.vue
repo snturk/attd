@@ -27,7 +27,14 @@ export default {
       if(this.password == this.passwordCheck && this.username.length > 2){
         firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
               (user) => {
-                user.displayName = this.username;
+                firebase.auth().currentUser.updateProfile({
+                    displayName: this.username,
+                    courses: ["aa", "bb"],
+                  }).then(function() {
+                    // Update successful.
+                  }).catch(function(error) {
+                    alert(error)
+                  });
                 router.push('/login', () => {});
             },
             (err) => {
