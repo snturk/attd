@@ -9,8 +9,24 @@ Vue.config.productionTip = false
 
 firebase.initializeApp(firebaseConfig);
 
+var database = firebase.database();
+var ref = database.ref("/courses/");
+
 new Vue({
   router,
   store,
   render: function (h) { return h(App) }
 }).$mount('#app')
+
+firebase.auth().onAuthStateChanged(function(user) {
+
+  if (user) {
+    router.replace('/home');
+  }else {
+    router.replace('/login');
+  };
+
+  (err) => {
+    console.log(err.message)
+  }
+});
