@@ -14,9 +14,6 @@ export default {
     return {
 
     }
-  },
-  created(){
-    router.push('/login', () => {})
   }
 }
 </script>

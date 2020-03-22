@@ -22,14 +22,14 @@ export default {
   data(){
     return{
       email: undefined,
-      password: undefined
+      password: undefined,
     }
   },
   methods: {
     signIn(){
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         (user) => {
-          router.push('/home', () => {});
+
         },
         (err) => {
         alert('Error ' + err.message);
