@@ -7,7 +7,6 @@
 
 <script>
 //COLORS: #3246B3 #64BEFF #F7F9FE #FF3366
-import router from './router/index.js'
 export default {
 
   data() {
