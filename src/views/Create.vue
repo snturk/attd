@@ -12,6 +12,7 @@
 
 <script>
 import firebase from 'firebase'
+import {ref, pushEmptyData} from '../database.js'
 import router from '../router/index.js'
 export default {
   data(){
@@ -19,7 +20,7 @@ export default {
       username: undefined,
       password: undefined,
       passwordCheck: undefined,
-      email: undefined
+      email: undefined,
     }
   },
   methods:{
@@ -29,13 +30,9 @@ export default {
               (user) => {
                 firebase.auth().currentUser.updateProfile({
                     displayName: this.username,
-                    courses: ["aa", "bb"],
-                  }).then(function() {
-                    // Update successful.
-                  }).catch(function(error) {
+                  }).then(pushEmptyData(this.username)).catch(function(error) {
                     alert(error)
                   });
-                router.push('/login', () => {});
             },
             (err) => {
               alert('Error ' + err.message);
