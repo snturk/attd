@@ -9,8 +9,10 @@ var ref = database.ref("/courses");
 var userInf = [];
 
 ref.on('value', getData);
+ref.on('child_changed', getData);
 
 function getData(snapshot) {
+  userInf = [];
   var data = snapshot.val()
   var keys = Object.keys(data);
   
@@ -29,7 +31,7 @@ function getData(snapshot) {
 function pushEmptyData(username) {
   var data = {
     username: username,
-    courses: [""]
+    courses: []
   }
   ref.push(data);
 }
