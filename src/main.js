@@ -15,9 +15,9 @@ new Vue({
 firebase.auth().onAuthStateChanged(function(user) {
 
   if (user) {
-    router.replace('/home');
+    router.push('/home', ()=>{});
   }else {
-    router.replace('/login');
+    router.push('/login', ()=>{});
   };
 
   (err) => {
