@@ -16,7 +16,6 @@ new Vue({
 firebase.auth().onAuthStateChanged(function(user) {
 
   if (user) {
-   Vuex.state.username = firebase.auth().currentUser.displayName;
     router.push('/home', ()=>{});
   }else {
     router.push('/login', ()=>{});
