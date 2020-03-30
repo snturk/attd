@@ -43,18 +43,19 @@ export default {
         limit: limit,
         attd: attd
       }
-      database.ref("/courses/" + Vuex.state.username).child("/courses").push(data);
+      database.ref("/courses/" + firebase.auth().currentUser.displayName).child("/courses").push(data);
       this.courseName = "";
       this.courseLimit = 0;
+      this.getCourses();
     },
     getCourses(){
-      database.ref("/courses/" + Vuex.state.username).child("/courses").on('value', (snapshot)=>{
+      database.ref("/courses/" + firebase.auth().currentUser.displayName).child("/courses").on('value', (snapshot)=>{
         this.courses = snapshot.val();
       });
       
     }
   },
-  created(){
+  mounted(){
     this.getCourses();
   },
   
