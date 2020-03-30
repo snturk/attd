@@ -30,10 +30,9 @@ function getData(snapshot) {
 
 function pushEmptyData(username) {
   var data = {
-    username: username,
-    courses: []
+    courses: undefined
   }
-  ref.push(data);
+  database.ref("/courses/" + username).push(data);
 }
 
-export {ref, userInf, pushEmptyData}
+export {ref, userInf, database, pushEmptyData}
