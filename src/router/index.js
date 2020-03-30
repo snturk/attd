@@ -11,7 +11,10 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: '/about',
@@ -31,7 +34,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'abstract',
   base: process.env.BASE_URL,
   routes
 })
