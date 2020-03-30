@@ -39,6 +39,7 @@ export default {
             }
             
             );
+            Vuex.state.username = firebase.auth().currentUser.displayName;
       }else if(this.password != this.passwordCheck){
         alert("passwords must be same");
       }else if(this.username.length <= 2){
