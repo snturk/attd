@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Vuex from './store/index.js'
 import firebase from 'firebase'
 import App from './App.vue'
 import router from './router'
@@ -15,6 +16,7 @@ new Vue({
 firebase.auth().onAuthStateChanged(function(user) {
 
   if (user) {
+   Vuex.state.username = firebase.auth().currentUser.displayName;
     router.push('/home', ()=>{});
   }else {
     router.push('/login', ()=>{});
