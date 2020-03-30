@@ -18,6 +18,7 @@
 <script>
 import firebase from 'firebase'
 import router from '../router/index.js'
+import Vuex from '../store/index.js'
 export default {
   data(){
     return{
