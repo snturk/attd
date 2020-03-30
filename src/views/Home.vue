@@ -17,7 +17,8 @@
 </template>
 
 <script>
-import {userInf, ref} from '../database.js'
+import {userInf, ref, database} from '../database.js'
+import Vuex from '../store/index.js'
 import firebase from 'firebase'
 import router from '../router/index.js'
 import course from '../components/Course.vue'
@@ -26,6 +27,7 @@ export default {
   data() {
     return {
       courses: [],
+      username: Vuex.state.username,
       id: undefined,
       courseName: "",
       courseLimit: 0,
@@ -41,43 +43,21 @@ export default {
         limit: limit,
         attd: attd
       }
-      ref.child(this.id + "/courses").push(data);
+      database.ref("/courses/" + Vuex.state.username).child("/courses").push(data);
       this.courseName = "";
       this.courseLimit = 0;
     },
     getCourses(){
-      this.courses = [];
-      userInf.forEach(element => {
-        if(element.username == firebase.auth().currentUser.displayName){
-          this.id = element.id;
-          }
-      });
-      ref.child(this.id + "/courses").on('value', (snapshot) =>{
-        var data = snapshot.val()
-        var keys = Object.keys(data);
-        
-          for(var i = 0; i < keys.length; i++) {
-            var id = keys[i];
-            var name = data[id].name;
-            var attd = data[id].attd;
-            var limit = data[id].limit;
-            this.courses.push({
-              id: id,
-              name: name,
-              attd: attd,
-              limit: limit
-            });
-          }
+      database.ref("/courses/" + Vuex.state.username).child("/courses").on('value', (snapshot)=>{
+        this.courses = snapshot.val();
       });
       
     }
   },
-  mounted(){
-    setInterval(() => {
-      this.getCourses();
-    }, 500);
-    
+  created(){
+    this.getCourses();
   },
+  
   components: {
     course
   }
