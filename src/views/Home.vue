@@ -7,8 +7,8 @@
       <div id="addBtn" v-on:click="pushCourse(courseName, courseLimit, 0)">add course</div>
     </div>
     <div id="coursesContainer">
-    <course v-for="course in courses" :key="course.id"
-      :name="course.name" :courseID="course.id" :userID="id" :attd="course.attd" :lim="course.limit"
+    <course v-for="data in datas" :key="data.id"
+      :name="data.course.name" :courseID="data.id" :username="username" :attd="data.course.attd" :lim="data.course.limit"
     >
     
     </course>
@@ -26,8 +26,8 @@ export default {
   name: 'Home',
   data() {
     return {
-      courses: [],
-      username: Vuex.state.username,
+      datas: [],
+      username: firebase.auth().currentUser.displayName,
       id: undefined,
       courseName: "",
       courseLimit: 0,
@@ -50,7 +50,17 @@ export default {
     },
     getCourses(){
       database.ref("/courses/" + firebase.auth().currentUser.displayName).child("/courses").on('value', (snapshot)=>{
-        this.courses = snapshot.val();
+        this.datas = [];
+        var data = snapshot.val();
+        var keys = Object.keys(data);
+        for(var i = 0; i < keys.length; i++) {
+            var id = keys[i];
+            var course = data[id];
+            this.datas.push({
+              id: id,
+              course: course
+            });
+        }
       });
       
     }
