@@ -10,18 +10,19 @@
 
 <script>
 import firebase from 'firebase'
-import {ref} from '../database.js'
+import {database} from '../database.js'
 export default {
   props: [
-    "courseID","userID", "name", "lim", "attd"
+    "courseID","username", "name", "lim", "attd"
   ],
   data() {
     return {
+      
     }
   },
   methods: {
     removeCourse(){
-      ref.child(this.userID + "/courses/" + this.courseID).remove();
+      database.ref("/courses/" + this.username + "/courses/" + this.courseID).remove();
     },
   },
 }
