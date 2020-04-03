@@ -4,7 +4,7 @@
     <hr>
     <div id="lim">course limit: {{lim}}</div>
     <div id="attd">current attd: {{attd}}</div>
-    <div v-on:click="removeCourse()">delete</div>
+    <div class="btn" id="delete" v-on:click="removeCourse()">delete</div>
   </div>
 </template>
 
@@ -31,13 +31,16 @@ export default {
 <style scoped>
   .course{
     flex: 1 1 auto;
-    width: fit-content;
     background-color: rgba(255, 51, 102, 0.678);
     padding: 10px;
     border-radius: 7px;
+    border: 1.2px solid black;
     font-family: 'Open Sans', sans-serif;
     color: black;
-    margin: 5px;
+    margin: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   #name{
@@ -56,5 +59,9 @@ export default {
   }
   #attd{
     font-size: 17px;
+  }
+
+  #delete{
+    margin: 15px;
   }
 </style>
