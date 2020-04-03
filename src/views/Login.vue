@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .login{
   height: 100%;
   padding: 0;
@@ -80,6 +80,7 @@ export default {
 }
 
 #loginBtn{
+  margin-top: 20%;
   background-color: rgba(252, 24, 81, 0.459);
 }
 
