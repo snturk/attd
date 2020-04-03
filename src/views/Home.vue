@@ -1,11 +1,12 @@
 <template>
   <div class="home">
-    <div id="logout" v-on:click="signOut">log out</div>
+    <div id="logout" class="btn" v-on:click="signOut">log out</div>
     <div id="addCourse">
       <input type="text" id="nameInput" v-model="courseName" placeholder="course name">
-      <input type="text" id="limitInput" v-model="courseLimit" placeholder="course limit">
-      <div id="addBtn" v-on:click="pushCourse(courseName, courseLimit, 0)">add course</div>
+      <input type="number" min="0" id="limitInput" v-model="courseLimit" placeholder="course limit">
+      <div id="addBtn" class="btn" v-on:click="pushCourse(courseName, courseLimit, 0)">add course</div>
     </div>
+
     <div id="coursesContainer">
     <course v-for="data in datas" :key="data.id"
       :name="data.course.name" :courseID="data.id" :username="username" :attd="data.course.attd" :lim="data.course.limit"
@@ -17,10 +18,9 @@
 </template>
 
 <script>
-import {userInf, ref, database} from '../database.js'
-import Vuex from '../store/index.js'
 import firebase from 'firebase'
 import router from '../router/index.js'
+import {database} from '../database.js'
 import course from '../components/Course.vue'
 export default {
   name: 'Home',
@@ -28,9 +28,8 @@ export default {
     return {
       datas: [],
       username: firebase.auth().currentUser.displayName,
-      id: undefined,
-      courseName: "",
-      courseLimit: 0,
+      courseName: undefined,
+      courseLimit: undefined,
     }
   },
   methods: {
@@ -44,8 +43,8 @@ export default {
         attd: attd
       }
       database.ref("/courses/" + firebase.auth().currentUser.displayName).child("/courses").push(data);
-      this.courseName = "";
-      this.courseLimit = 0;
+      this.courseName = undefined;
+      this.courseLimit = undefined;
       this.getCourses();
     },
     getCourses(){
@@ -75,18 +74,32 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
+  #logout{
+    margin-top: 2%;
+  }
+
   #addCourse{
     margin: 0 auto;
     width: fit-content;
     border: 1px black solid;
     border-radius: 7px;
     margin-top: 5%;
+    background-color: rgba(255, 51, 102, 0.418);
+  }
+  #addBtn{
+    background-color: rgba(252, 24, 81, 0.459);
+    margin: 0 auto;
+    margin-bottom: 15px;
   }
 
   #coursesContainer{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
     margin-top: 8%;
+    max-width: 80%;
   }
 </style>
