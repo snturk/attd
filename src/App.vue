@@ -73,8 +73,7 @@ input:focus{
 }
 
 .btn{
-  margin: 0 auto;
-  margin-top: 20%;
+  margin: 0 auto;;
   width: fit-content;
   padding: 9px;
   font-size: 90%;
