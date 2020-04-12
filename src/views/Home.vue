@@ -48,8 +48,8 @@ export default {
       this.getCourses();
     },
     getCourses(){
+      this.datas = [];
       database.ref("/courses/" + firebase.auth().currentUser.displayName).child("/courses").on('value', (snapshot)=>{
-        this.datas = [];
         var data = snapshot.val();
         var keys = Object.keys(data);
         for(var i = 0; i < keys.length; i++) {
@@ -62,9 +62,12 @@ export default {
         }
       });
       
-    }
+    },
   },
   mounted(){
+    this.getCourses();
+  },
+  beforeUpdate(){
     this.getCourses();
   },
   
@@ -78,6 +81,7 @@ export default {
 
   #logout{
     margin-top: 2%;
+    box-shadow: 0 5px 7px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
   }
 
   #addCourse{
@@ -87,6 +91,7 @@ export default {
     border-radius: 7px;
     margin-top: 5%;
     background-color: rgba(255, 51, 102, 0.418);
+    box-shadow: 0 19px 20px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
   }
   #addBtn{
     background-color: rgba(252, 24, 81, 0.459);
