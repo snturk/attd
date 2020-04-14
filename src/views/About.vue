@@ -2,7 +2,7 @@
   <div class="about">
     <div id="aboutContainer">
       <div id="title">about</div>
-      <div id="description"> <span>attd</span> is an <i>open-source</i> website that allows you to trace/follow your attendence situation maunally.</div>
+      <div id="description"> <span>attd</span> is an <i>open-source</i> website that allows you to trace/follow your attendence situation manually.</div>
       <a href="http://github.com/snturk/attd" target="_blank" rel="noopener noreferrer">repo</a>
     </div>
   </div>
