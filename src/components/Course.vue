@@ -59,7 +59,7 @@ export default {
   .course{
     flex: 1 1 auto;
     background-color: rgba(255, 51, 102, 0.750);
-    padding: 10px;
+    padding: 1%;
     border-radius: 7px;
     border: 1.2px solid black;
     box-shadow: 0 19px 20px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
@@ -75,7 +75,7 @@ export default {
 
 
   #name{
-    font-size: 22px;
+    font-size: 120%;
   }
   hr{
     height: 1px;
@@ -86,7 +86,7 @@ export default {
 
   #infoContainer{
     margin-top: 5%;
-    font-size: 17px;
+    font-size: 92%;
   }
 
   #attdContainer{
@@ -112,7 +112,7 @@ export default {
 
   #warning{
     color: red;
-    font-size: 17px;
+    font-size: 92%;
     margin-top: 3%;
     margin-bottom: 3%;
     text-decoration: underline;
@@ -128,13 +128,13 @@ export default {
   }
   .attdChange{
     width: 40%;
-    padding: 10px;
+    padding: 3.3%;
     text-align: center;
-    font-size: 20px;
+    font-size: 110%;
     border: 3px solid black;
     border-radius: 7px;
     margin: 0 auto;
-    margin: 15px;
+    margin: 3%;
     cursor: pointer;
   }
 
@@ -142,21 +142,18 @@ export default {
     background-color: #FF3366;
   }
   #attdMinus{
-    background-color: #64BEFF;
+    background-color: rgba(100, 190, 255, 0.850);
   }
 
   #delete{
     width: 85%;
-    padding: 10px;
-    font-size: 20px;
+    padding: 3.3%;
+    font-size: 110%;
     background: black;
     color: white;
     cursor: pointer;
     transition-duration: 200ms;
     border-radius: 7px;
     margin: 0 auto;
-  }
-  #delete:hover{
-    filter: invert(100%);
   }
 </style>
