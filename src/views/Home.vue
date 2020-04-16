@@ -6,7 +6,7 @@
       <input type="number" min="0" id="limitInput" v-model="courseLimit" placeholder="course limit">
       <div id="addBtn" class="btn" v-on:click="pushCourse(courseName, courseLimit, 0)">add course</div>
     </div>
-
+    <div id="coursesTitle">MY COURSES</div>
     <div id="coursesContainer">
     <course v-for="data in datas" :key="data.id"
       :name="data.course.name" :courseID="data.id" :username="username" :attd="data.course.attd" :lim="data.course.limit"
@@ -28,8 +28,8 @@ export default {
     return {
       datas: [],
       username: firebase.auth().currentUser.displayName,
-      courseName: undefined,
-      courseLimit: undefined,
+      courseName: "",
+      courseLimit: 0,
     }
   },
   methods: {
@@ -37,15 +37,20 @@ export default {
       firebase.auth().signOut();
     },
     pushCourse(name, limit, attd){
-      var data = {
-        name: name,
-        limit: limit,
-        attd: attd
+      if(name.length > 0){
+        var data = {
+          name: name.toUpperCase(),
+          limit: limit,
+          attd: attd
+        }
+        database.ref("/courses/" + firebase.auth().currentUser.displayName).child("/courses").push(data);
+        this.courseName = undefined;
+        this.courseLimit = undefined;
+        this.getCourses();
+      }else{
+        alert("Course name must be filled");
       }
-      database.ref("/courses/" + firebase.auth().currentUser.displayName).child("/courses").push(data);
-      this.courseName = undefined;
-      this.courseLimit = undefined;
-      this.getCourses();
+      
     },
     getCourses(){
       this.datas = [];
@@ -99,12 +104,19 @@ export default {
     margin-bottom: 15px;
   }
 
+  #coursesTitle{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    text-decoration: underline;
+    margin-top: 8%;
+    margin-bottom: 3%;
+  }
+
   #coursesContainer{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    margin: 0 auto;
-    margin-top: 8%;
-    max-width: 80%;
+    flex-wrap: wrap;
+    margin-bottom: 4%;
   }
 </style>
