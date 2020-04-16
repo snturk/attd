@@ -6,14 +6,14 @@
       <div>course limit: <b>{{lim}}</b></div>
       <div> current attd: <b>{{attd}}</b></div>
     </div>
-    <div id="attdContainer" v-if="attd != 0">
+    <div id="attdContainer">
     <div class="box" id="attdbox" v-for="(n, index) in attd"></div>
     <div class="box" id="limitbox" v-for="(n, index) in currentlim"></div>
     </div>
     <div id="warning" v-if="currentlim == 0">you have no left limit to attd</div>
     <div id="opsContainer">
-      <div class="attdChange" id="attdPlus" v-on:click="changeAttd('+')">+</div>
-      <div class="attdChange" id="attdMinus" v-on:click="changeAttd('-')">-</div>
+      <div class="attdChange" id="attdPlus" v-on:click="changeAttd('+')">add</div>
+      <div class="attdChange" id="attdMinus" v-on:click="changeAttd('-')">remove</div>
     </div>
     <div id="delete" v-on:click="removeCourse()">delete</div>
   </div>
@@ -65,11 +65,12 @@ export default {
     box-shadow: 0 19px 20px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
     font-family: 'Open Sans', sans-serif;
     color: black;
-    flex-basis: 20%;
-    margin: 12px;
+    flex-basis: 40%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    max-width: 30%;
+    margin: 0 auto;
+    margin-top: 2%;
   }
 
 
@@ -93,6 +94,7 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
     width: fit-content;
+    margin: 0 auto;
     margin-top: 7%;
     margin-bottom: 7%;
   }
@@ -110,7 +112,7 @@ export default {
 
   #warning{
     color: red;
-    font-size: 18px;
+    font-size: 17px;
     margin-top: 3%;
     margin-bottom: 3%;
     text-decoration: underline;
@@ -128,9 +130,10 @@ export default {
     width: 40%;
     padding: 10px;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     border: 3px solid black;
     border-radius: 7px;
+    margin: 0 auto;
     margin: 15px;
     cursor: pointer;
   }
@@ -151,6 +154,7 @@ export default {
     cursor: pointer;
     transition-duration: 200ms;
     border-radius: 7px;
+    margin: 0 auto;
   }
   #delete:hover{
     filter: invert(100%);
