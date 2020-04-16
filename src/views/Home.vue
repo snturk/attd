@@ -6,14 +6,16 @@
       <input type="number" min="0" id="limitInput" v-model="courseLimit" placeholder="course limit">
       <div id="addBtn" class="btn" v-on:click="pushCourse(courseName, courseLimit, 0)">add course</div>
     </div>
-    <div id="coursesTitle">MY COURSES</div>
-    <div id="coursesContainer">
-    <course v-for="data in datas" :key="data.id"
-      :name="data.course.name" :courseID="data.id" :username="username" :attd="data.course.attd" :lim="data.course.limit"
-    >
-    
-    </course>
-    </div> 
+    <div id="data" v-if="datas.length > 0">
+      <div id="coursesTitle">MY COURSES</div>
+      <div id="coursesContainer">
+      <course v-for="data in datas" :key="data.id"
+        :name="data.course.name" :courseID="data.id" :username="username" :attd="data.course.attd" :lim="data.course.limit"
+      >
+      </course>
+      </div> 
+    </div>
+    <div id="message" v-else>You don't have any courses yet. You can add from above panel.</div>
   </div>
 </template>
 
@@ -104,6 +106,12 @@ export default {
     margin-bottom: 15px;
   }
 
+  #message{
+    margin-top: 12%;
+    color: rgba(0, 0, 0, 0.767);
+    font-size: 20px;
+  }
+
   #coursesTitle{
     color: black;
     font-family: 'Open Sans', sans-serif;
@@ -115,7 +123,6 @@ export default {
 
   #coursesContainer{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 4%;
   }
