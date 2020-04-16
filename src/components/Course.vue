@@ -10,7 +10,7 @@
     <div class="box" id="attdbox" v-for="(n, index) in attd"></div>
     <div class="box" id="limitbox" v-for="(n, index) in currentlim"></div>
     </div>
-    <div id="warning" v-if="currentlim == 0">you have no left limit to attd</div>
+    <div id="warning" v-if="currentlim == 0">you have no limit left to attd</div>
     <div id="opsContainer">
       <div class="attdChange" id="attdPlus" v-on:click="changeAttd('+')">+</div>
       <div class="attdChange" id="attdMinus" v-on:click="changeAttd('-')">-</div>
