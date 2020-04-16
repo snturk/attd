@@ -103,19 +103,19 @@ export default {
   #addBtn{
     background-color: rgba(252, 24, 81, 0.459);
     margin: 0 auto;
-    margin-bottom: 15px;
+    margin-bottom: 7%;
   }
 
   #message{
     margin-top: 12%;
     color: rgba(0, 0, 0, 0.767);
-    font-size: 20px;
+    font-size: 110%;
   }
 
   #coursesTitle{
     color: black;
     font-family: 'Open Sans', sans-serif;
-    font-size: 30px;
+    font-size: 170%;
     text-decoration: underline;
     margin-top: 8%;
     margin-bottom: 3%;
