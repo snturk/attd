@@ -30,6 +30,7 @@ background: linear-gradient(45deg, rgba(103,118,199,1) 27%, rgba(255,171,171,1) 
   50% {background-position: 00% 50%;}
   100% {background-position: 100% 50%;}
 }
+
 #app {
   position: absolute;
   left: 0;
@@ -88,6 +89,12 @@ input:focus{
 .btn:hover{
   background-color: black;
   color: #F7F9FE;
+}
+
+@media screen and (max-width: 768px){
+  body{
+    background: rgba(103,118,199);
+  }
 }
    
 </style>

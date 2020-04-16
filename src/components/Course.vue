@@ -65,9 +65,9 @@ export default {
     box-shadow: 0 19px 20px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
     font-family: 'Open Sans', sans-serif;
     color: black;
-    flex-basis: 40%;
     display: flex;
     flex-direction: column;
+    flex-basis: 50%;
     max-width: 30%;
     margin: 0 auto;
     margin-top: 2%;
@@ -155,5 +155,14 @@ export default {
     transition-duration: 200ms;
     border-radius: 7px;
     margin: 0 auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .course{
+      max-width: 400px;
+      margin-top: 7%;
+      margin-bottom: 7%;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
+    }
   }
 </style>

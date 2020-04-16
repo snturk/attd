@@ -94,9 +94,10 @@ export default {
   #addCourse{
     margin: 0 auto;
     width: fit-content;
+    padding: 1% 3% 1% 3%;
     border: 1px black solid;
     border-radius: 7px;
-    margin-top: 5%;
+    margin-top: 7%;
     background-color: rgba(255, 51, 102, 0.418);
     box-shadow: 0 19px 20px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
   }
@@ -125,5 +126,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 4%;
+    width: 85%;
+    margin: 0 auto;
   }
 </style>
