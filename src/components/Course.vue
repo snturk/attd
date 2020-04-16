@@ -2,15 +2,20 @@
   <div class="course">
     <div id="name">{{name}}</div>
     <hr>
-    <div id="lim">course limit: <b>{{lim}}</b></div>
-    <div id="attdContainer" v-if="attd != 0">
-    <div id="attdbox" v-for="(n, index) in attd"></div>
+    <div id="infoContainer">
+      <div>course limit: <b>{{lim}}</b></div>
+      <div> current attd: <b>{{attd}}</b></div>
     </div>
+    <div id="attdContainer" v-if="attd != 0">
+    <div class="box" id="attdbox" v-for="(n, index) in attd"></div>
+    <div class="box" id="limitbox" v-for="(n, index) in currentlim"></div>
+    </div>
+    <div id="warning" v-if="currentlim == 0">you have no left limit to attd</div>
     <div id="opsContainer">
       <div class="attdChange" id="attdPlus" v-on:click="changeAttd('+')">+</div>
       <div class="attdChange" id="attdMinus" v-on:click="changeAttd('-')">-</div>
     </div>
-    <div class="btn" id="delete" v-on:click="removeCourse()">delete</div>
+    <div id="delete" v-on:click="removeCourse()">delete</div>
   </div>
 </template>
 
@@ -26,18 +31,24 @@ export default {
       
     }
   },
+  computed: {
+    currentlim(){
+      if(this.lim > this.attd){
+        return (this.lim-this.attd)
+      }
+      return 0
+    }
+  },
   methods: {
     removeCourse(){
       database.ref("/courses/" + this.username + "/courses/" + this.courseID).remove();
     },
     changeAttd(cmd){
       var ref = database.ref("/courses/" + this.username + "/courses/" + this.courseID + "/attd");
-      if(cmd == "+"){
+      if(cmd == "+" && this.attd < this.lim){
         ref.set(this.attd + 1);
-      }else if(cmd == "-"){
-        if(this.attd > 0){
-          ref.set(this.attd - 1);
-        }
+      }else if(cmd == "-" && this.attd > 0){
+        ref.set(this.attd - 1);
       }
     }
   },
@@ -47,7 +58,7 @@ export default {
 <style scoped>
   .course{
     flex: 1 1 auto;
-    background-color: rgba(255, 51, 102, 0.678);
+    background-color: rgba(255, 51, 102, 0.750);
     padding: 10px;
     border-radius: 7px;
     border: 1.2px solid black;
@@ -61,6 +72,7 @@ export default {
     align-items: center;
   }
 
+
   #name{
     font-size: 22px;
   }
@@ -71,38 +83,56 @@ export default {
     border: 0;
   }
 
-  #lim{
+  #infoContainer{
+    margin-top: 5%;
     font-size: 17px;
-    margin-top: 3%;
-    margin-bottom: 3%;
   }
+
   #attdContainer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: fit-content;
+    margin-top: 7%;
+    margin-bottom: 7%;
   }
-  #attdbox{
+  .box{
     padding: 5px;
-    background-color: black;
     margin: 5px;
-    margin-bottom: 10%; /* (100-32*3)/2 */
-    margin-top: 10%;
     border-radius: 50%;
   }
+  #attdbox{
+    background-color: black;
+  }
+  #limitbox{
+    background-color:white;
+  }
+
+  #warning{
+    color: red;
+    font-size: 18px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    text-decoration: underline;
+    background-color: black;
+    padding: 5px;
+    border-radius: 7px;
+  }
+
   #opsContainer{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    width: 100%;
   }
   .attdChange{
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    padding: 8px;
+    width: 40%;
+    padding: 10px;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
     border: 3px solid black;
+    border-radius: 7px;
     margin: 15px;
+    cursor: pointer;
   }
 
   #attdPlus{
@@ -113,6 +143,16 @@ export default {
   }
 
   #delete{
-    margin: 15px;
+    width: 85%;
+    padding: 10px;
+    font-size: 20px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    transition-duration: 200ms;
+    border-radius: 7px;
+  }
+  #delete:hover{
+    filter: invert(100%);
   }
 </style>
