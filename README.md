@@ -1,19 +1,5 @@
 # attd
 
-## Project setup
-```
-npm install
-```
+## Description
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+attd is a program that tracks your attendence and checks it with relevant course's attendence limit. More simply, it helps you to not to fail.
