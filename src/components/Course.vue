@@ -94,6 +94,7 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
     width: fit-content;
+    width: 95%;
     margin: 0 auto;
     margin-top: 7%;
     margin-bottom: 7%;
