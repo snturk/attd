@@ -13,6 +13,11 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '*',
+      name: '404',
+      component: Login
+    },
+    {
       path: '/home',
       name: 'Home',
       meta: {
