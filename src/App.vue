@@ -60,7 +60,7 @@ input{
   display: block;
   margin: 0 auto;
   margin: 15px;
-  padding: 10px;
+  padding: 5%;
   font-size: 70%;
   border-radius: 4px;
   border: 2px solid rgba(0, 0, 0, 0.651);
