@@ -5,12 +5,13 @@
     <div id="infoContainer">
       <div>course limit: <b>{{lim}}</b></div>
       <div> current attd: <b>{{attd}}</b></div>
+      <div> percentage: <b>%{{percentage}}</b> </div>
     </div>
     <div id="attdContainer">
     <div class="box" id="attdbox" v-for="(n, index) in attd"></div>
-    <div class="box" id="limitbox" v-for="(n, index) in currentlim"></div>
+    <div class="box" id="limitbox" v-for="(n, index) in currentLim"></div>
     </div>
-    <div id="warning" v-if="currentlim == 0">you have no left limit to attd</div>
+    <div id="warning" v-if="currentLim == 0">you have no left limit to attd</div>
     <div id="opsContainer">
       <div class="attdChange" id="attdPlus" v-on:click="changeAttd('+')">add</div>
       <div class="attdChange" id="attdMinus" v-on:click="changeAttd('-')">remove</div>
@@ -24,15 +25,15 @@ import firebase from 'firebase'
 import {database} from '../database.js'
 export default {
   props: [
-    "courseID","username", "name", "lim", "attd"
+    "courseID","username", "name", "lim", "attd", "percentage"
   ],
   data() {
     return {
-      
+
     }
   },
   computed: {
-    currentlim(){
+    currentLim(){
       if(this.lim > this.attd){
         return (this.lim-this.attd)
       }
@@ -101,7 +102,7 @@ export default {
   }
   .box{
     padding: 5px;
-    margin: 5px;
+    margin: 2.3px;
     border-radius: 50%;
   }
   #attdbox{
