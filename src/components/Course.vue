@@ -5,7 +5,7 @@
     <div id="infoContainer">
       <div>course limit: <b>{{lim}}</b></div>
       <div> current attd: <b>{{attd}}</b></div>
-      <div v-if="lim=! 0"> percentage: <b>%{{percentage}}</b> </div>
+      <div v-if="lim > 0"> percentage: <b>%{{percentage}}</b> </div>
     </div>
     <div id="attdContainer">
     <div class="box" id="attdbox" v-for="(n, index) in attd"></div>
@@ -46,7 +46,7 @@ export default {
     },
     changeAttd(cmd){
       var ref = database.ref("/courses/" + this.username + "/courses/" + this.courseID + "/attd");
-      if(cmd == "+" && this.attd < this.lim){
+      if(cmd == "+"){
         ref.set(this.attd + 1);
       }else if(cmd == "-" && this.attd > 0){
         ref.set(this.attd - 1);
