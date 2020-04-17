@@ -5,13 +5,13 @@
     <div id="infoContainer">
       <div>course limit: <b>{{lim}}</b></div>
       <div> current attd: <b>{{attd}}</b></div>
-      <div> percentage: <b>%{{percentage}}</b> </div>
+      <div> percentage: v-if="lim=! 0" <b>%{{percentage}}</b> </div>
     </div>
     <div id="attdContainer">
     <div class="box" id="attdbox" v-for="(n, index) in attd"></div>
     <div class="box" id="limitbox" v-for="(n, index) in currentLim"></div>
     </div>
-    <div id="warning" v-if="currentLim == 0">you have no left limit to attd</div>
+    <div id="warning" v-if="currentLim == 0 && lim != 0">you have no left limit to attd</div>
     <div id="opsContainer">
       <div class="attdChange" id="attdPlus" v-on:click="changeAttd('+')">add</div>
       <div class="attdChange" id="attdMinus" v-on:click="changeAttd('-')">remove</div>
