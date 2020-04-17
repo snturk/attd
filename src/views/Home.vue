@@ -21,7 +21,7 @@
       </course>
       </div> 
     </div>
-    <div id="message" v-else>You don't have any courses yet. You can add from above panel.</div>
+    <div id="message" v-else>You don't have any courses yet. You can add from the panel above.</div>
     <div id="author"><a href="http://github.com/snturk" target="_blank">©2020 github.com/snturk</a></div>
   </div>
 </template>
@@ -62,19 +62,24 @@ export default {
       
     },
     getCourses(){
-      this.datas = [];
-      database.ref("/courses/" + firebase.auth().currentUser.displayName).child("/courses").on('value', (snapshot)=>{
-        var data = snapshot.val();
-        var keys = Object.keys(data);
-        for(var i = 0; i < keys.length; i++) {
+      
+      database.ref("/courses/" + firebase.auth().currentUser.displayName).child("/courses").once('value').then((snapshot)=>{
+        if(snapshot.exists()){
+          var data = snapshot.val();
+          var keys = Object.keys(data);
+          this.datas = [];
+          for(var i = 0; i < keys.length; i++) {
             var id = keys[i];
-            var course = data[id];
-            this.datas.push({
-              id: id,
-              course: course
-            });
+              var course = data[id];
+              this.datas.push({
+                id: id,
+                course: course
+              });
+          }
+        }else{
+          this.datas = [];
         }
-      });
+        });
       
     },
   },
