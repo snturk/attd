@@ -10,12 +10,13 @@
       <div id="coursesTitle">MY COURSES</div>
       <div id="coursesContainer">
       <course v-for="data in datas" :key="data.id"
-        :name="data.course.name" :courseID="data.id" :username="username" :attd="data.course.attd" :lim="data.course.limit"
+        :name="data.course.name" :courseID="data.id" :username="username" :attd="data.course.attd" :lim="data.course.limit" :percentage="Math.round(data.course.attd/data.course.limit*100)"
       >
       </course>
       </div> 
     </div>
     <div id="message" v-else>You don't have any courses yet. You can add from above panel.</div>
+    <div id="author"><a href="http://github.com/snturk" target="_blank">©2020 github.com/snturk</a></div>
   </div>
 </template>
 
@@ -125,8 +126,15 @@ export default {
   #coursesContainer{
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 4%;
     width: 85%;
     margin: 0 auto;
+    margin-bottom: 4%;
+  }
+
+  #author{
+    font-size: 70%;
+    color: #2c3e50;
+    margin: 0 auto;
+    margin-bottom: 1%;
   }
 </style>
