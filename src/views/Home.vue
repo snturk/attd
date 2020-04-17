@@ -1,6 +1,12 @@
 <template>
   <div class="home">
-    <div id="logout" class="btn" v-on:click="signOut">log out</div>
+    <div id="navBar">
+      <div id="mainTitle">attd</div>
+      <div id="rightNav" align="right">
+        <div id="username">{{username}}</div>
+      <div id="logout" class="btn" v-on:click="signOut">log out</div>
+      </div>
+    </div>
     <div id="addCourse">
       <input type="text" id="nameInput" v-model="courseName" placeholder="course name">
       <input type="number" min="0" id="limitInput" v-model="courseLimit" placeholder="course limit">
@@ -86,9 +92,41 @@ export default {
 </script>
 
 <style>
-
+  #navBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.4%;
+    background-color: #FF3366;
+    box-shadow: 0 5px 7px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
+  }
+  #mainTitle{
+    color: black;
+    font-size: 180%;
+    margin-left: 1%;
+    font-family: 'Sen', sans-serif;
+    
+  }
+  #rightNav{
+    position: absolute;
+    right: 1%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #username{
+    padding-right: 15px;
+    color: black;
+    font-size: 100%;
+    font-family: 'OpenSans', sans-serif;
+  }
   #logout{
-    margin-top: 2%;
+    height: fit-content;
+    font-size: 100%;
+    font-family: 'OpenSans', sans-serif;
     box-shadow: 0 5px 7px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
   }
 
@@ -98,7 +136,7 @@ export default {
     padding: 1% 3% 1% 3%;
     border: 1px black solid;
     border-radius: 7px;
-    margin-top: 7%;
+    margin-top: 10%;
     background-color: rgba(255, 51, 102, 0.418);
     box-shadow: 0 19px 20px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
   }
