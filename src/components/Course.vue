@@ -5,7 +5,7 @@
     <div id="infoContainer">
       <div>course limit: <b>{{lim}}</b></div>
       <div> current attd: <b>{{attd}}</b></div>
-      <div> percentage: v-if="lim=! 0" <b>%{{percentage}}</b> </div>
+      <div v-if="lim=! 0"> percentage: <b>%{{percentage}}</b> </div>
     </div>
     <div id="attdContainer">
     <div class="box" id="attdbox" v-for="(n, index) in attd"></div>
