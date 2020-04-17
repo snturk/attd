@@ -83,7 +83,7 @@ input:focus{
   border-radius: 7px;
   border: 2px solid black;
   cursor: pointer;
-  transition-duration: 400ms;
+  transition-duration: 260ms;
 }
 
 .btn:hover{
