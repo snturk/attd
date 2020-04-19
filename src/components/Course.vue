@@ -8,8 +8,8 @@
       <div v-if="lim > 0"> percentage: <b>%{{percentage}}</b> </div>
     </div>
     <div id="attdContainer">
-    <div class="box" id="attdbox" v-for="(n, index) in attd"></div>
-    <div class="box" id="limitbox" v-for="(n, index) in currentLim"></div>
+    <div class="progressBar" id="progressAttd" v-if="percentage !== 0" v-bind:style="{width: percentage + '%',}"></div>
+    <div class="progressBar" id="progressLim" v-if="percentage !== 100" v-bind:style="{width: 100-percentage + '%',}"></div>
     </div>
     <div id="warning" v-if="currentLim == 0 && lim != 0">you have no left limit to attd</div>
     <div id="opsContainer">
@@ -93,23 +93,25 @@ export default {
   #attdContainer{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     width: fit-content;
     width: 95%;
     margin: 0 auto;
     margin-top: 7%;
     margin-bottom: 7%;
+    border: 3px solid black;
+    border-radius: 7px;
   }
-  .box{
-    padding: 5px;
-    margin: 2.3px;
-    border-radius: 50%;
+  .progressBar{
+    padding: 10px;
+    transition-duration: 160ms;
   }
-  #attdbox{
-    background-color: black;
+  #progressAttd{
+    background-color: rgb(228, 50, 94);
+    border-radius: 7px 4px 4px 7px;
   }
-  #limitbox{
-    background-color:white;
+  #progressLim{
+    background-color: rgb(61, 161, 233);
+    border-radius: 4px 7px 7px 4px;
   }
 
   #warning{
