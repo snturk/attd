@@ -106,10 +106,12 @@ export default {
     transition-duration: 160ms;
   }
   #progressAttd{
+    z-index: 100;
     background-color: rgb(228, 50, 94);
     border-radius: 7px 4px 4px 7px;
   }
   #progressLim{
+    z-index: 99;
     background-color: rgb(61, 161, 233);
     border-radius: 4px 7px 7px 4px;
   }
