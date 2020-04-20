@@ -57,10 +57,17 @@ export default {
 }
 
 #title{
-  color: black;
-  font-size: 290%;
+  font-size: 400%;
   margin-bottom: 15%;
+  -webkit-text-stroke: 1.4px black;
+  text-shadow: none;
   font-family: 'Sen', sans-serif;
+  animation: titleAni 9s infinite;
+}
+@keyframes titleAni {
+  0%{color: transparent;}
+  50%{color: black;}
+  100%{color: transparent;}
 }
 
 #loginPanel{
