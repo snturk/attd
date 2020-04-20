@@ -8,8 +8,8 @@
       <div v-if="lim > 0"> percentage: <b>%{{percentage}}</b> </div>
     </div>
     <div id="attdContainer">
-    <div class="progressBar" id="progressAttd" v-if="percentage !== 0" v-bind:style="{width: percentage + '%',}"></div>
-    <div class="progressBar" id="progressLim" v-if="percentage !== 100" v-bind:style="{width: 100-percentage + '%',}"></div>
+    <div class="progressBar" id="progressAttd" v-show="percentage !== 0" v-bind:style="{width: percentage + '%',}"></div>
+    <div class="progressBar" id="progressLim" v-show="percentage !== 100" v-bind:style="{width: 100-percentage + '%',}"></div>
     </div>
     <div id="warning" v-if="currentLim == 0 && lim != 0">you have no left limit to attd</div>
     <div id="opsContainer">
@@ -51,7 +51,7 @@ export default {
       }else if(cmd == "-" && this.attd > 0){
         ref.set(this.attd - 1);
       }
-    }
+    },
   },
 }
 </script>
