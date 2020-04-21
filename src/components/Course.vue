@@ -46,12 +46,29 @@ export default {
     },
     changeAttd(cmd){
       var ref = database.ref("/courses/" + this.username + "/courses/" + this.courseID + "/attd");
-      if(cmd == "+"){
+      if(cmd == "+" && this.attd < this.lim){
+        if(this.attd == this.lim-1){
+          document.getElementById('progressLim').style.opacity = 0;
+        }else if(this.attd == 0){
+          document.getElementById('progressAttd').style.opacity = 1;
+        }
         ref.set(this.attd + 1);
       }else if(cmd == "-" && this.attd > 0){
+        if(this.attd == 1){
+          document.getElementById('progressAttd').style.opacity = 0;
+        }else if(this.attd == this.lim){
+          document.getElementById('progressLim').style.opacity = 1;
+        }
         ref.set(this.attd - 1);
       }
     },
+    setOpacity(){
+      if (this.attd == 0) {
+        document.getElementById('progressAttd').style.opacity = 0;
+      }else if(this.lim == 0){
+        document.getElementById('progressLim').style.opacity = 0;
+      }
+    }
   },
 }
 </script>
@@ -103,7 +120,7 @@ export default {
   }
   .progressBar{
     padding: 10px;
-    transition-duration: 160ms;
+    transition-duration: 260ms;
   }
   #progressAttd{
     z-index: 100;
