@@ -9,7 +9,7 @@ import Create from '../views/Create.vue'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'abstract',
   base: process.env.BASE_URL,
   routes: [
     {
