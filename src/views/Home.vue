@@ -103,7 +103,6 @@ export default {
     align-items: center;
     top: 0;
     left: 0;
-    width: 100%;
     padding: 1.4%;
     background-color: #FF3366;
     box-shadow: 0 5px 7px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
