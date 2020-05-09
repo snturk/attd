@@ -4,7 +4,7 @@
       <div id="title">attd</div>
       <div id="loginPanel">
         <input type="text" name="" id="emailInput" placeholder="email" v-model="email">
-        <input type="password" name="" id="pwInput" placeholder="password" v-model="password" style="margin-top: 20px">
+        <input type="password" name="" id="pwInput" placeholder="password" v-on:keypress.enter="signIn()" v-model="password" style="margin-top: 20px">
         <div id="loginBtn" class="btn" v-on:click="signIn()">login</div>
         <div id="linkContainer">
           <router-link class="panelLink" to="/create">create an acc</router-link>
