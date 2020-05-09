@@ -11,7 +11,7 @@
     <div class="progressBar" id="progressAttd" v-show="percentage !== 0" v-bind:style="{width: percentage + '%',}"></div>
     <div class="progressBar" id="progressLim" v-show="percentage !== 100" v-bind:style="{width: 100-percentage + '%',}"></div>
     </div>
-    <div id="warning" v-if="currentLim == 0 && lim != 0">you have no left limit to attd</div>
+    <div id="warning" v-show="currentLim == 0 && lim != 0">you have no left limit to attd</div>
     <div id="opsContainer">
       <div class="attdChange" id="attdPlus" v-on:click="changeAttd('+')">add</div>
       <div class="attdChange" id="attdMinus" v-on:click="changeAttd('-')">remove</div>
@@ -79,7 +79,7 @@ export default {
     background-color: rgba(255, 51, 102, 0.750);
     padding: 1%;
     border-radius: 7px;
-    border: 1.2px solid black;
+    border: 1.5px solid black;
     box-shadow: 0 19px 20px rgba(0,0,0,0.30), 0 15px 19px rgba(0, 0, 0, 0.32);
     font-family: 'Open Sans', sans-serif;
     color: black;
@@ -89,6 +89,14 @@ export default {
     max-width: 30%;
     margin: 0 auto;
     margin-top: 2%;
+    animation-name: borderAni;
+    animation-duration:8s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes borderAni {
+    0%{box-shadow: -26px 19px 20px rgba(0,0,0,0.30), -23px 15px 19px rgba(0, 0, 0, 0.32)}
+    50%{box-shadow: 10px 19px 20px rgba(0,0,0,0.30), 2px 15px 19px rgba(0, 0, 0, 0.32);}
+    100%{box-shadow: -26px 19px 20px rgba(0,0,0,0.30), -23px 15px 19px rgba(0, 0, 0, 0.32)}
   }
 
 
@@ -159,6 +167,10 @@ export default {
     margin: 0 auto;
     margin: 3%;
     cursor: pointer;
+    transition-duration: 200ms;
+  }
+  .attdChange:active{
+    transform: scale(0.9);
   }
 
   #attdPlus{
