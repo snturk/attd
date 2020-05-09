@@ -19,7 +19,9 @@ export default {
 
 <style>
 body{
-background: linear-gradient(45deg, rgba(103,118,199,1) 27%, rgba(255,171,171,1) 100%);
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(45deg, rgba(103,118,199,1) 27%, rgba(255,171,171,1) 100%);
   background-size: 200%;
   animation-name: bg;
   animation-duration: 9s;
