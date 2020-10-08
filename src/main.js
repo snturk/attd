@@ -21,7 +21,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     router.push('/login', ()=>{});
   };
 
-  (err) => {
-    console.log(err.message)
+  (e) => {
+    console.log(e.code)
   }
 });
