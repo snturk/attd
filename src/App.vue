@@ -8,12 +8,6 @@
 <script>
 //COLORS: #3246B3 #64BEFF #F7F9FE #FF3366
 export default {
-
-  data() {
-    return {
-      
-    }
-  },
 }
 </script>
 
